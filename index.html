@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎁 Món Quà Giữa Ngân Hà ✨</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  background:
+    radial-gradient(ellipse at 50% 45%, #38266c 0%, #171338 48%, #070919 100%);
+}
+
+#universe {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #d9caff;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1.4); }
+}
+
+.nebula {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .22;
+  pointer-events: none;
+}
+
+.nebula.one {
+  background: #b34cff;
+  top: 5%;
+  left: -130px;
+}
+
+.nebula.two {
+  background: #ff5bba;
+  right: -150px;
+  bottom: 5%;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 35px 18px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.badge {
+  border: 1px solid #d9baff70;
+  border-radius: 30px;
+  padding: 9px 18px;
+  color: #e4d4ff;
+  background: #ffffff0a;
+  letter-spacing: 2px;
+  font-size: 12px;
+  box-shadow: 0 0 20px #a879ff20;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  color: #ffd9f1;
+  font-size: clamp(39px, 8vw, 66px);
+  margin: 20px 0 8px;
+  text-shadow: 0 0 25px #e18aff90;
+}
+
+.intro {
+  max-width: 500px;
+  line-height: 1.9;
+  color: #d8ccec;
+  font-size: 14px;
+}
+
+.names {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 650px;
+  margin: 17px auto 0;
+}
+
+.names span {
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #ffffff0d;
+  border: 1px solid #e9d7ff30;
+  color: #f4e6ff;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  perspective: 800px;
+}
+
+.aura {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: #b66dff18;
+  box-shadow: 0 0 65px 25px #b66dff20;
+  animation: aura 3s ease-in-out infinite alternate;
+}
+
+@keyframes aura {
+  to { transform: scale(1.2); opacity: .65; }
+}
+
+.gift {
+  position: relative;
+  z-index: 3;
+  width: 190px;
+  height: 190px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  animation: float 3s ease-in-out infinite;
+  outline: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.gift-box {
+  position: absolute;
+  width: 150px;
+  height: 105px;
+  left: 20px;
+  bottom: 18px;
+  border-radius: 5px 5px 12px 12px;
+  background: linear-gradient(120deg, #ffabd9, #d66bc1);
+  box-shadow: 0 12px 35px #ff77d540;
+}
+
+.gift-box::before {
+  content: "";
+  position: absolute;
+  left: 59px;
+  height: 100%;
+  width: 31px;
+  background: linear-gradient(90deg, #fff0bb, #ffe6a0, #fff2c6);
+}
+
+.gift-box::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 9px;
+  bottom: 0;
+  background: #ba4eaa;
+  opacity: .5;
+}
+
+.gift-lid {
+  position: absolute;
+  width: 174px;
+  height: 30px;
+  left: 8px;
+  bottom: 120px;
+  border-radius: 7px;
+  background: linear-gradient(120deg, #ffc5e7, #e77bc7);
+  box-shadow: 0 0 18px #ff9ee855;
+  transform-origin: 15px 100%;
+  transition: transform 1s cubic-bezier(.2,.8,.3,1);
+  z-index: 5;
+}
+
+.gift-lid::before {
+  content: "";
+  position: absolute;
+  left: 70px;
+  top: 0;
+  width: 31px;
+  height: 100%;
+  background: #fff0bb;
+}
+
+.bow {
+  position: absolute;
+  z-index: 7;
+  left: 69px;
+  bottom: 141px;
+  width: 52px;
+  height: 29px;
+  transition: transform .7s, opacity .5s;
+}
+
+.bow::before, .bow::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 20px;
+  border: 6px solid #ffe7ad;
+  border-radius: 80% 80% 25% 80%;
+}
+
+.bow::before { transform: rotate(20deg); }
+.bow::after {
+  left: 22px;
+  transform: scaleX(-1) rotate(20deg);
+}
+
+.bouquet {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 5px;
+  bottom: 105px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(65px) scale(.25);
+  transition: opacity .8s, transform 1.2s cubic-bezier(.2,1.5,.4,1);
+}
+
+.flower {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  animation: flowerSway 2s ease-in-out infinite alternate;
+}
+
+.flower:nth-child(1) { left: 69px; top: 10px; }
+.flower:nth-child(2) { left: 35px; top: 35px; animation-delay: -.5s; }
+.flower:nth-child(3) { left: 103px; top: 35px; animation-delay: -.8s; }
+.flower:nth-child(4) { left: 57px; top: 52px; animation-delay: -.3s; }
+.flower:nth-child(5) { left: 84px; top: 53px; animation-delay: -.6s; }
+
+@keyframes flowerSway {
+  from { rotate: -6deg; }
+  to { rotate: 6deg; }
+}
+
+.flower .p {
+  position: absolute;
+  width: 20px;
+  height: 25px;
+  left: 12px;
+  top: 0;
+  border-radius: 50% 50% 45% 45%;
+  transform-origin: 10px 22px;
+  background: #ffb6db;
+  box-shadow: inset -2px -3px 5px #c75fa955;
+}
+
+.flower .p:nth-child(2) { transform: rotate(72deg); }
+.flower .p:nth-child(3) { transform: rotate(144deg); }
+.flower .p:nth-child(4) { transform: rotate(216deg); }
+.flower .p:nth-child(5) { transform: rotate(288deg); }
+
+.flower .c {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 17px;
+  top: 13px;
+  border-radius: 50%;
+  background: #ffe9a0;
+  box-shadow: 0 0 8px #ffe9a0;
+}
+
+.flower:nth-child(2) .p { background: #d6bbff; }
+.flower:nth-child(3) .p { background: #fff1f9; }
+.flower:nth-child(4) .p { background: #ff92c8; }
+.flower:nth-child(5) .p { background: #d8c7ff; }
+
+.wrap {
+  position: absolute;
+  width: 100px;
+  height: 95px;
+  left: 40px;
+  top: 75px;
+}
+
+.wrap::before, .wrap::after {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 95px;
+  background: linear-gradient(100deg, #d7b6ff, #f5d9ff);
+  border: 1px solid #fff4ff;
+  top: 0;
+}
+
+.wrap::before {
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 35% 78%);
+}
+
+.wrap::after {
+  right: 0;
+  clip-path: polygon(0 0, 100% 0, 65% 78%, 25% 100%);
+}
+
+.gift.opened .gift-lid {
+  transform: translate(-8px, -35px) rotate(-24deg);
+}
+
+.gift.opened .bow {
+  transform: translate(15px, -40px) rotate(20deg);
+  opacity: 0;
+}
+
+.gift.opened .bouquet {
+  opacity: 1;
+  transform: translateY(-55px) scale(1);
+}
+
+.gift.opened {
+  animation: none;
+}
+
+.instruction {
+  font-size: 14px;
+  color: #e7d4ff;
+  margin: 0;
+  animation: hint 1.8s infinite alternate;
+}
+
+@keyframes hint {
+  to { opacity: .55; }
+}
+
+#message {
+  display: none;
+  max-width: 650px;
+  width: 100%;
+  margin: 5px auto 25px;
+  padding: 27px 22px;
+  border: 1px solid #edceff60;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #ffffff12, #c7a2ff0c);
+  box-shadow: 0 0 45px #b87bff1a;
+  animation: messageIn 1.2s both;
+}
+
+@keyframes messageIn {
+  from { opacity: 0; transform: translateY(25px) scale(.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+#message h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(30px, 6vw, 43px);
+  color: #ffcbe9;
+  margin: 0 0 15px;
+  text-shadow: 0 0 18px #ff9bdd60;
+}
+
+#message p {
+  color: #eee4ff;
+  line-height: 2;
+  font-size: 14px;
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 27px !important;
+  color: #ffc6e9 !important;
+}
+
+button {
+  border: 1px solid #ffffff60;
+  border-radius: 30px;
+  padding: 12px 23px;
+  color: white;
+  background: linear-gradient(110deg, #b77af4, #ed87c4);
+  font: 700 14px 'Quicksand', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 5px 25px #bd80ed45;
+  transition: transform .2s;
+}
+
+button:hover { transform: translateY(-2px); }
+
+.footer {
+  color: #ac9ccf;
+  font-size: 12px;
+  margin-top: auto;
+  padding-top: 30px;
+  letter-spacing: 1px;
+}
+
+.falling {
+  position: fixed;
+  z-index: 10;
+  top: -30px;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translate(var(--drift), 110vh) rotate(600deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container { padding-top: 25px; }
+  .scene { height: 290px; transform: scale(.92); }
+  #message { padding: 22px 17px; }
+}
+</style>
+</head>
+
+<body>
+<div id="universe"></div>
+<div class="nebula one"></div>
+<div class="nebula two"></div>
+
+<main class="container">
+  <div class="badge">✦ 20 . 10 . 2026 ✦</div>
+
+  <h1>A Little Gift For You</h1>
+
+  <div class="intro">
+    Giữa hàng triệu vì sao ngoài kia,<br>
+    có 7 cô gái xứng đáng nhận được món quà
+    lung linh nhất vũ trụ. 💖
+  </div>
+
+  <div class="names">
+    <span>🌷 Ngọc Trâm</span>
+    <span>🪻 Như Hằng</span>
+    <span>🌸 Như Ý</span>
+    <span>💐 Quỳnh Như</span>
+    <span>🌹 Kim Chi</span>
+    <span>🌼 Thu Huyền</span>
+    <span>✨ Quỳnh Hương</span>
+  </div>
+
+  <section class="scene">
+    <div class="aura"></div>
+
+    <div class="gift" id="gift" role="button"
+         tabindex="0" aria-label="Mở hộp quà 20 tháng 10"
+         onclick="openGift()"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGift()}">
+
+      <div class="bouquet">
+        <div class="flower">
+          <i class="p"></i><i class="p"></i><i class="p"></i>
+          <i class="p"></i><i class="p"></i><i class="c"></i>
+        </div>
+        <div class="flower">
+          <i class="p"></i><i class="p"></i><i class="p"></i>
+          <i class="p"></i><i class="p"></i><i class="c"></i>
+        </div>
+        <div class="flower">
+          <i class="p"></i><i class="p"></i><i class="p"></i>
+          <i class="p"></i><i class="p"></i><i class="c"></i>
+        </div>
+        <div class="flower">
+          <i class="p"></i><i class="p"></i><i class="p"></i>
+          <i class="p"></i><i class="p"></i><i class="c"></i>
+        </div>
+        <div class="flower">
+          <i class="p"></i><i class="p"></i><i class="p"></i>
+          <i class="p"></i><i class="p"></i><i class="c"></i>
+        </div>
+        <div class="wrap"></div>
+      </div>
+
+      <div class="gift-box"></div>
+      <div class="gift-lid"></div>
+      <div class="bow"></div>
+    </div>
+  </section>
+
+  <p class="instruction" id="instruction">
+    ✨ Chạm vào hộp quà để khám phá điều bất ngờ ✨
+  </p>
+
+  <section id="message">
+    <h2>Happy Vietnamese Women's Day! 💗</h2>
+
+    <p>
+      Gửi Ngọc Trâm, Như Hằng, Như Ý, Quỳnh Như,
+      Kim Chi, Thu Huyền và Quỳnh Hương! 🌷
+    </p>
+
+    <p>
+      Nhân ngày 20/10, chúc 7 bông hoa của tổ mình
+      luôn xinh đẹp, rạng rỡ và tự tin tỏa sáng
+      như những vì sao trên bầu trời đêm. ✨
+      <br><br>
+      Chúc các cậu học tập thật tốt, điểm số thật cao,
+      lúc nào cũng vui vẻ, gặp nhiều may mắn,
+      luôn được yêu thương và mọi ước mơ đều dần
+      trở thành hiện thực. 💕
+      <br><br>
+      Mong tuổi trẻ của chúng ta có thật nhiều tiếng cười,
+      kỷ niệm đẹp và những ngày tháng đáng nhớ bên nhau.
+      Hãy luôn là phiên bản tuyệt vời nhất của chính mình nhé!
+    </p>
+
+    <p class="signature">
+      Tặng các cậu cả vũ trụ yêu thương 🌌💐
+    </p>
+
+    <p>♡ You deserve all the beautiful things in the world ♡</p>
+  </section>
+
+  <button id="again" onclick="openGift()" style="display:none">
+    ✨ Xem lại món quà
+  </button>
+
+  <div class="footer">
+    MADE WITH LOVE FOR OUR 7 STARS ♡
+    <p>🌙 You are someone's little universe 🌙</p>
+  </div>
+</main>
+
+<script>
+// Tạo bầu trời sao ngẫu nhiên
+const universe = document.getElementById('universe');
+
+for (let i = 0; i < 150; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+
+  const size = Math.random() * 2.5 + 1;
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.animationDelay = Math.random() * 3 + 's';
+  star.style.animationDuration = (1.5 + Math.random() * 3) + 's';
+
+  universe.appendChild(star);
+}
+
+// Hiệu ứng mở hộp và tặng bó hoa
+let opened = false;
+
+function openGift() {
+  const gift = document.getElementById('gift');
+  const message = document.getElementById('message');
+  const instruction = document.getElementById('instruction');
+  const again = document.getElementById('again');
+
+  if (!opened) {
+    opened = true;
+
+    gift.classList.add('opened');
+    instruction.textContent = '💖 Một bó hoa dành riêng cho các cậu 💖';
+
+    // Cho bó hoa xuất hiện trước, sau đó hiện lời chúc
+    setTimeout(() => {
+      message.style.display = 'block';
+      again.style.display = 'inline-block';
+
+      launchParticles(65);
+
+      setTimeout(() => {
+        message.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        });
+      }, 150);
+    }, 1100);
+  } else {
+    // Cho phép xem lại hiệu ứng
+    opened = false;
+    gift.classList.remove('opened');
+    message.style.display = 'none';
+    again.style.display = 'none';
+    instruction.textContent =
+      '✨ Chạm vào hộp quà để khám phá điều bất ngờ ✨';
+  }
+}
+
+// Mưa tim, hoa và sao khi mở quà
+function launchParticles(count) {
+  const symbols = ['💗', '🌸', '✨', '🌷', '💜', '⭐'];
+
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('span');
+    particle.className = 'falling';
+    particle.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    particle.style.left = Math.random() * 100 + 'vw';
+    particle.style.fontSize = (12 + Math.random() * 17) + 'px';
+    particle.style.animationDuration = (3 + Math.random() * 4) + 's';
+    particle.style.animationDelay = Math.random() * 1.5 + 's';
+    particle.style.setProperty(
+      '--drift',
+      (Math.random() * 200 - 100) + 'px'
+    );
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => particle.remove(), 9000);
+  }
+}
+</script>
+</body>
+</html>
